@@ -72,8 +72,6 @@ a {
     rgba(255, 255, 255, 0.95) 100%
   );
 }
-/* .start-page-content {
-} */
 .header {
   position: relative;
   display: flex;
@@ -169,6 +167,24 @@ a {
   margin-top: 70px;
   padding: 100px 0 100px 40px;
   border: 10px solid rgba(255, 214, 87, 0.6);
+  border-right: 0;
+}
+.start-page-body::before,
+.start-page-body::after {
+  position: absolute;
+  content: '';
+  width: 10px;
+  background: rgba(255, 214, 87, 0.6);
+}
+.start-page-body::before {
+  height: 40px;
+  top: 0;
+  right: 0;
+}
+.start-page-body::after {
+  height: 10px;
+  bottom: 0;
+  right: 0;
 }
 .start-page-body h1 {
   font-family: 'Raleway';
@@ -252,6 +268,7 @@ a {
   bottom: -30px;
   right: -900px;
   height: 580px;
+  z-index: 2;
 }
 
 /* === SETTINGS === */
