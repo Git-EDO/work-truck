@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -29,9 +33,15 @@
               </div>
               <nav class="nav">
                 <ul class="nav-list">
-                  <li class="nav-link"><a href="#">услуги</a></li>
-                  <li class="nav-link"><a href="#">цены</a></li>
-                  <li class="nav-link"><a href="#">контакты</a></li>
+                  <li class="nav-link">
+                    <a href="#" id="services-scroll">услуги</a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="#" id="prices-scroll">цены</a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="#" id="contacts-scroll">контакты</a>
+                  </li>
                 </ul>
               </nav>
               <div class="header-buttons">
@@ -584,8 +594,12 @@
               <form class="call-form">
                 <div class="call-form-title">ВЫЗВАТЬ ЭВАКУАТОР</div>
                 <div class="call-form-subtitle">прямо сейчас онлайн:</div>
-                <input type="text" placeholder="Имя" />
-                <input type="tel" placeholder="Телефон" />
+                <input type="text" placeholder="Имя" name="call-form-name" />
+                <input
+                  type="tel"
+                  placeholder="Телефон"
+                  name="call-form-phone"
+                />
                 <div class="car-type-select">
                   <button type="button" class="car-type-select-body">
                     Тип вашего авто
@@ -595,7 +609,11 @@
                     <div class="car-type-select-option">Джип</div>
                     <div class="car-type-select-option">Грузовой</div>
                   </div>
-                  <input type="text" class="car-type-hidden-input" />
+                  <input
+                    type="text"
+                    class="car-type-hidden-input"
+                    name="call-form-hidden-input"
+                  />
                 </div>
                 <button type="submit" class="btn call-form-btn">
                   заказать
@@ -613,6 +631,17 @@
                   >Я принимаю условия обработки
                   <a href="#">персональных данных</a></label
                 >
+                <div class="call-form-success-notification">
+                  <div class="success-notification-circle">
+                    <img src="./img/help/check-icon.svg" alt="icon" />
+                  </div>
+                  <div class="success-notification-title">
+                    Спасибо, что выбрали наш сервис
+                  </div>
+                  <div class="success-notification-subtitle">
+                    Мы уже подбираем подходящий для вас эвакуатор
+                  </div>
+                </div>
               </form>
               <img
                 class="call-form-truck"
@@ -627,40 +656,61 @@
         <div class="container">
           <h2 class="section-title">Наши работы</h2>
           <div class="gallery-grid">
-            <div class="gallery-grid-item">
+            <a href="./img/our-work/img1.jpg" class="gallery-grid-item">
               <img src="./img/our-work/img1.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item">
+            </a>
+            <a href="./img/our-work/img2.jpg" class="gallery-grid-item">
               <img src="./img/our-work/img2.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item gallery-grid-item3">
+            </a>
+            <a
+              href="./img/our-work/img3.jpg"
+              class="gallery-grid-item gallery-grid-item3"
+            >
               <img src="./img/our-work/img3.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item gallery-grid-item4">
+            </a>
+            <a
+              href="./img/our-work/img4.jpg"
+              class="gallery-grid-item gallery-grid-item4"
+            >
               <img src="./img/our-work/img4.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item">
+            </a>
+            <a href="./img/our-work/img5.jpg" class="gallery-grid-item">
               <img src="./img/our-work/img5.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item gallery-grid-item-link">
+            </a>
+            <div class="gallery-grid-item-link">
               <p>Больше фото</p>
-              <p><a href="#">смотреть</a></p>
+              <p><span>смотреть</span></p>
             </div>
-            <div class="gallery-grid-item additional-grid-item">
+            <a
+              href="./img/our-work/img1.jpg"
+              class="gallery-grid-item additional-grid-item"
+            >
               <img src="./img/our-work/img1.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item additional-grid-item">
+            </a>
+            <a
+              href="./img/our-work/img2.jpg"
+              class="gallery-grid-item additional-grid-item"
+            >
               <img src="./img/our-work/img2.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item additional-grid-item">
+            </a>
+            <a
+              href="./img/our-work/img3.jpg"
+              class="gallery-grid-item additional-grid-item"
+            >
               <img src="./img/our-work/img3.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item additional-grid-item">
+            </a>
+            <a
+              href="./img/our-work/img4.jpg"
+              class="gallery-grid-item additional-grid-item"
+            >
               <img src="./img/our-work/img4.jpg" alt="image" />
-            </div>
-            <div class="gallery-grid-item additional-grid-item">
+            </a>
+            <a
+              href="./img/our-work/img5.jpg"
+              class="gallery-grid-item additional-grid-item"
+            >
               <img src="./img/our-work/img5.jpg" alt="image" />
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -703,7 +753,82 @@
           </div>
         </div>
       </section>
+      <div class="feedback">
+        <div class="container">
+          <div class="need-help-content">
+            <div class="need-help-body">
+              <div class="feedback-close">X</div>
+              <div class="start-page-bg">
+                <div class="start-page-img">
+                  <img src="./img/start-page/start-page-bg.jpg" alt="bg" />
+                </div>
+                <div class="start-page-cover"></div>
+              </div>
+              <form class="call-form">
+                <div class="call-form-title">ВЫЗВАТЬ ЭВАКУАТОР</div>
+                <div class="call-form-subtitle">прямо сейчас онлайн:</div>
+                <input type="text" placeholder="Имя" name="popup-name" />
+                <input type="tel" placeholder="Телефон" name="popup-phone" />
+                <div class="car-type-select">
+                  <button type="button" class="car-type-select-body">
+                    Тип вашего авто
+                  </button>
+                  <div class="car-type-select-options">
+                    <div class="car-type-select-option">Легковой</div>
+                    <div class="car-type-select-option">Джип</div>
+                    <div class="car-type-select-option">Грузовой</div>
+                  </div>
+                  <input
+                    type="text"
+                    class="car-type-hidden-input"
+                    name="popup-car-type-hidden-input"
+                  />
+                </div>
+                <button type="submit" class="btn call-form-btn">
+                  заказать
+                </button>
+                <a href="#" class="call-form-whats-app"
+                  >связаться с нами
+                  <img src="./img/start-page/whatsapp-icon.svg" alt="icon" />
+                </a>
+                <input
+                  type="checkbox"
+                  id="popup-call-form-personal"
+                  name="popup-call-form-personal"
+                />
+                <label for="popup-call-form-personal" class="call-form-personal"
+                  >Я принимаю условия обработки
+                  <a href="#">персональных данных</a></label
+                >
+                <div class="call-form-success-notification">
+                  <div class="success-notification-circle">
+                    <img src="./img/help/check-icon.svg" alt="icon" />
+                  </div>
+                  <div class="success-notification-title">
+                    Спасибо, что выбрали наш сервис
+                  </div>
+                  <div class="success-notification-subtitle">
+                    Мы уже подбираем подходящий для вас эвакуатор
+                  </div>
+                </div>
+              </form>
+              <img
+                class="call-form-truck"
+                src="./img/start-page/truck-with-car.png"
+                alt="truck"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

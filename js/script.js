@@ -128,31 +128,39 @@ document.addEventListener('click', (e) => {
 // Селект выбора типа авто
 
 // Управление select
-const carTypeSelect = document.querySelector('.car-type-select-body')
-const carTypeDropDown = document.querySelector('.car-type-select-options')
-const carTypeHiddenInput = document.querySelector('.car-type-hidden-input')
+const carTypeSelect = document.querySelectorAll('.car-type-select-body')
+const carTypeDropDown = document.querySelectorAll('.car-type-select-options')
+const carTypeHiddenInput = document.querySelectorAll('.car-type-hidden-input')
 
-carTypeSelect.addEventListener('click', function (e) {
-  e.preventDefault()
-  e.stopPropagation()
-  e.target.classList.toggle('active')
-  carTypeDropDown.classList.toggle('active')
+carTypeSelect.forEach((select) => {
+  select.addEventListener('click', function (e) {
+    e.preventDefault()
+    e.stopPropagation()
+    e.target.classList.toggle('active')
+    e.target
+      .closest('form')
+      .querySelector('.car-type-select-options')
+      .classList.toggle('active')
+  })
 })
 
 // Присваиваем значение выбранной опции в селект
-
-carTypeDropDown.addEventListener('click', function (e) {
-  carTypeSelect.innerHTML = e.target.innerHTML
-  carTypeHiddenInput.value = e.target.innerText
-  carTypeDropDown.classList.remove('active')
+carTypeDropDown.forEach((dropdown) => {
+  dropdown.addEventListener('click', function (e) {
+    e.target.closest('form').querySelector('.car-type-select-body').innerHTML =
+      e.target.innerHTML
+    e.target.closest('form').querySelector('.car-type-hidden-input').innerHTML =
+      e.target.innerText
+    dropdown.classList.remove('active')
+  })
 })
 
 // Закрываем селект при клике не по нему
 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.car-type-selection-select')) {
-    carTypeSelect.classList.remove('active')
-    carTypeDropDown.classList.remove('active')
+    carTypeSelect.forEach((select) => select.classList.remove('active'))
+    carTypeDropDown.forEach((dropdown) => dropdown.classList.remove('active'))
   }
 })
 
@@ -165,4 +173,78 @@ addGalleryPhotos.addEventListener('click', (e) => {
   e.preventDefault()
   addGalleryPhotos.style.display = 'none'
   additionalPhotos.forEach((photo) => (photo.style.display = 'block'))
+})
+
+// Форма ОС
+
+const closeFeedback = document.querySelector('.feedback-close')
+const formButton = document.querySelectorAll('.call-form-btn')
+const feedbackForm = document.querySelector('.feedback')
+const servicesSectionBtns = document.querySelectorAll('.services-section-btn')
+
+formButton.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    btn
+      .closest('form')
+      .querySelector('.call-form-success-notification').style.display = 'flex'
+  })
+})
+
+closeFeedback.addEventListener('click', () => {
+  feedbackForm.style.display = 'none'
+})
+
+servicesSectionBtns.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    feedbackForm.style.display = 'block'
+  })
+})
+
+// Маска для телефона
+
+const phones = document.querySelectorAll('input[type="tel"]')
+
+phones.forEach((phone) => {
+  const phoneMask = IMask(phone, {
+    mask: '+{7}(000)000-00-00',
+  })
+})
+
+// Галерея
+
+$(document).ready(function () {
+  $('.gallery-grid-item').magnificPopup({ type: 'image' })
+})
+
+$('.gallery-grid').magnificPopup({
+  delegate: 'a',
+  type: 'image',
+  // other options
+})
+
+// Scroll из навигации
+
+const servicesScroll = document.getElementById('services-scroll')
+const pricesScroll = document.getElementById('prices-scroll')
+const contactsScroll = document.getElementById('contacts-scroll')
+
+servicesScroll.addEventListener('click', (e) => {
+  e.preventDefault()
+  document
+    .querySelector('.services-section')
+    .scrollIntoView({ behavior: 'smooth', block: 'start' })
+})
+pricesScroll.addEventListener('click', (e) => {
+  e.preventDefault()
+  document
+    .querySelector('.need-help')
+    .scrollIntoView({ behavior: 'smooth', block: 'start' })
+})
+contactsScroll.addEventListener('click', (e) => {
+  e.preventDefault()
+  document
+    .querySelector('.work-zone')
+    .scrollIntoView({ behavior: 'smooth', block: 'start' })
 })
