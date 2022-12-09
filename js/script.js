@@ -113,6 +113,49 @@ colorSelect.addEventListener('click', function (e) {
 colorDropDown.addEventListener('click', function (e) {
   colorSelect.innerHTML = e.target.innerHTML
   colorHiddenInput.value = e.target.dataset.colors
+  if (colorHiddenInput.value === 'colors1') {
+    document.documentElement.style.setProperty('--accent-color', '#eeb60a')
+    document.documentElement.style.setProperty(
+      '--gradient1',
+      'linear-gradient(92.89deg, #f9bf0a 0.6%, #ffd75a 100%)'
+    )
+    document.documentElement.style.setProperty(
+      '--frame-color',
+      'rgba(255, 214, 87, 0.6)'
+    )
+    document.documentElement.style.setProperty(
+      '--box-shadow',
+      '0 10px 15px rgba(238, 182, 10, 0.25)'
+    )
+  } else if (colorHiddenInput.value === 'colors2') {
+    document.documentElement.style.setProperty('--accent-color', '#2a9d8f')
+    document.documentElement.style.setProperty(
+      '--gradient1',
+      'linear-gradient(92.89deg, #099d8c 0.6%, #2a9d8f 100%)'
+    )
+    document.documentElement.style.setProperty(
+      '--frame-color',
+      'rgba(42, 157, 143, 0.6)'
+    )
+    document.documentElement.style.setProperty(
+      '--box-shadow',
+      '0 10px 15px rgba(10, 238, 86, 0.25)'
+    )
+  } else if (colorHiddenInput.value === 'colors3') {
+    document.documentElement.style.setProperty('--accent-color', '#457b9d')
+    document.documentElement.style.setProperty(
+      '--gradient1',
+      'linear-gradient(92.89deg, #1b6ea1 0.6%, #457b9d 100%)'
+    )
+    document.documentElement.style.setProperty(
+      '--frame-color',
+      'rgba(69, 123, 157, 0.6)'
+    )
+    document.documentElement.style.setProperty(
+      '--box-shadow',
+      '0 10px 15px rgba(10, 113, 238, 0.25)'
+    )
+  }
   colorDropDown.classList.remove('active')
 })
 
