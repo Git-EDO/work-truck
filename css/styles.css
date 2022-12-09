@@ -1330,7 +1330,31 @@ input[type='file'] {
   font-size: 32px;
   font-weight: 500;
 }
+.note {
+  display: inline-block;
+  position: relative;
+}
+.note .note-text {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid #d9d9d9;
 
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 110%;
+  text-align: left;
+  color: #000000;
+}
+.note:hover .note-text {
+  display: block;
+}
 @media (max-width: 1200px) {
   .start-page-subtitle {
     width: 80%;
