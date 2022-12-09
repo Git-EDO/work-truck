@@ -89,9 +89,6 @@ a {
   display: flex;
   align-items: center;
 }
-.header-logo path {
-  fill: var(--accent-color);
-}
 .header-logo img {
   width: 90px;
   height: 56px;
