@@ -292,69 +292,77 @@ contactsScroll.addEventListener('click', (e) => {
     .scrollIntoView({ behavior: 'smooth', block: 'start' })
 })
 
-// // Карта
+// Карта
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   if (document.querySelector('.work-zone-map')) {
-//     ymaps.ready(init)
+const windowHeight = document.documentElement.clientHeight
+const yaMap = document.querySelector('.work-zone-map')
+const yaMapHeight = yaMap.getBoundingClientRect().top + scrollY
 
-//     function init() {
-//       const map = new ymaps.Map('map', {
-//         center: [55.709243, 37.500737],
-//         zoom: 9,
-//       })
+window.addEventListener('DOMContentLoaded', loadMap)
+window.addEventListener('scroll', loadMap)
 
-//       // // Создаем многоугольник, используя класс GeoObject.
-//       // var myGeoObject = new ymaps.GeoObject(
-//       //   {
-//       //     // Описываем геометрию геообъекта.
-//       //     geometry: {
-//       //       // Тип геометрии - "Многоугольник".
-//       //       type: 'Polygon',
-//       //       // Указываем координаты вершин многоугольника.
-//       //       coordinates: [
-//       //         // Координаты вершин внешнего контура.
-//       //         [
-//       //           [55.75, 37.8],
-//       //           [55.8, 37.9],
-//       //           [55.75, 38.0],
-//       //           [55.7, 38.0],
-//       //           [55.7, 37.8],
-//       //         ],
-//       //         // Координаты вершин внутреннего контура.
-//       //       ],
-//       //       // Задаем правило заливки внутренних контуров по алгоритму "nonZero".
-//       //       fillRule: 'nonZero',
-//       //     },
-//       //     // Описываем свойства геообъекта.
-//       //     properties: {
-//       //       // Содержимое балуна.
-//       //       balloonContent: 'Многоугольник',
-//       //     },
-//       //   },
-//       //   {
-//       //     // Описываем опции геообъекта.
-//       //     // Цвет заливки.
-//       //     fillColor: '#eeb60a',
-//       //     // Цвет обводки.
-//       //     strokeColor: '#9c7a13',
-//       //     // Общая прозрачность (как для заливки, так и для обводки).
-//       //     opacity: 0.5,
-//       //     // Ширина обводки.
-//       //     strokeWidth: 3,
-//       //     // Стиль обводки.
-//       //     strokeStyle: 'shortdash',
-//       //   }
-//       // )
+function loadMap() {
+  if (scrollY > yaMapHeight - windowHeight) {
+    ymaps.ready(init)
 
-//       // // Добавляем многоугольник на карту.
-//       // map.geoObjects.add(myGeoObject)
+    function init() {
+      const map = new ymaps.Map('map', {
+        center: [55.709243, 37.500737],
+        zoom: 9,
+      })
 
-//       map.controls.remove('geolocationControl') // удаляем геолокацию
-//       map.controls.remove('searchControl') // удаляем поиск
-//       map.controls.remove('trafficControl') // удаляем контроль трафика
-//       map.controls.remove('typeSelector') // удаляем тип
-//       map.controls.remove('zoomControl') // удаляем контрол зуммирования
-//     }
-//   }
-// })
+      // // Создаем многоугольник, используя класс GeoObject.
+      // var myGeoObject = new ymaps.GeoObject(
+      //   {
+      //     // Описываем геометрию геообъекта.
+      //     geometry: {
+      //       // Тип геометрии - "Многоугольник".
+      //       type: 'Polygon',
+      //       // Указываем координаты вершин многоугольника.
+      //       coordinates: [
+      //         // Координаты вершин внешнего контура.
+      //         [
+      //           [55.75, 37.8],
+      //           [55.8, 37.9],
+      //           [55.75, 38.0],
+      //           [55.7, 38.0],
+      //           [55.7, 37.8],
+      //         ],
+      //         // Координаты вершин внутреннего контура.
+      //       ],
+      //       // Задаем правило заливки внутренних контуров по алгоритму "nonZero".
+      //       fillRule: 'nonZero',
+      //     },
+      //     // Описываем свойства геообъекта.
+      //     properties: {
+      //       // Содержимое балуна.
+      //       balloonContent: 'Многоугольник',
+      //     },
+      //   },
+      //   {
+      //     // Описываем опции геообъекта.
+      //     // Цвет заливки.
+      //     fillColor: '#eeb60a',
+      //     // Цвет обводки.
+      //     strokeColor: '#9c7a13',
+      //     // Общая прозрачность (как для заливки, так и для обводки).
+      //     opacity: 0.5,
+      //     // Ширина обводки.
+      //     strokeWidth: 3,
+      //     // Стиль обводки.
+      //     strokeStyle: 'shortdash',
+      //   }
+      // )
+
+      // // Добавляем многоугольник на карту.
+      // map.geoObjects.add(myGeoObject)
+
+      map.controls.remove('geolocationControl') // удаляем геолокацию
+      map.controls.remove('searchControl') // удаляем поиск
+      map.controls.remove('trafficControl') // удаляем контроль трафика
+      map.controls.remove('typeSelector') // удаляем тип
+      map.controls.remove('zoomControl') // удаляем контрол зуммирования
+    }
+    window.removeEventListener('scroll', loadMap)
+  }
+}
