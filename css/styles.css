@@ -1200,6 +1200,9 @@ input[type='file'] {
   border-right: none;
   min-height: 500px;
   padding: 50px;
+
+  position: relative;
+  z-index: 1;
 }
 .work-zone-body::before,
 .work-zone-body::after {
